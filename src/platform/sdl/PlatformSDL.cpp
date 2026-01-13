@@ -8,7 +8,8 @@
 #include <SDL3/SDL_keycode.h>
 
 #include "PlatformSDL.h"
-#include "../../engine/event/Event.h"
+#include "../../event/Event.h"
+#include "../../event/EventQueue.h"
 
 Key PlatformSDL::convertKey(const SDL_Keycode sdl_keycode) {
     switch (sdl_keycode) {
@@ -55,13 +56,13 @@ std::optional<Event> PlatformSDL::convertEvent(const SDL_Event &sdl_event) {
         case (SDL_EVENT_KEY_DOWN):
             return Event(
                 EventType::KEY_DOWN,
-                KeyEvent(PlatformSDL::convertKey(sdl_event.key.key))
+                KeyEvent(convertKey(sdl_event.key.key))
             );
 
         case (SDL_EVENT_KEY_UP):
             return Event(
                 EventType::KEY_UP,
-                KeyEvent(PlatformSDL::convertKey(sdl_event.key.key))
+                KeyEvent(convertKey(sdl_event.key.key))
             );
 
         case (SDL_EVENT_QUIT):

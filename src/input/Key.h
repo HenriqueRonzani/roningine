@@ -11,7 +11,8 @@ enum class Key {
     W, A, S, D,
     UP, DOWN, LEFT, RIGHT,
     NUM_1, NUM_2, NUM_3, NUM_4, NUM_5, NUM_6, NUM_7,
-    SPACE, RETURN , SHIFT, CTRL, ESCAPE
+    SPACE, RETURN , SHIFT, CTRL, ESCAPE,
+    COUNT
 };
 
 #endif //RONINGINE_KEY_H

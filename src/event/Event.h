@@ -22,11 +22,13 @@ struct QuitEvent {};
 struct Event {
     EventType type;
     union {
-        KeyEvent key;
+        KeyEvent keyEvent;
         QuitEvent quit;
     };
 
-    explicit Event (const EventType type, const KeyEvent& k) : type(type), key(k) {}
+    Event() : type (EventType::QUIT), quit {} {}
+
+    explicit Event (const EventType type, const KeyEvent& k) : type(type), keyEvent(k) {}
     explicit Event (const QuitEvent& q) : type(EventType::QUIT), quit(q) {}
 };
 
